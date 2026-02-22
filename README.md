@@ -133,14 +133,19 @@ git push origin main
 python -m prefect deploy -n clima-1h
 ```
 
-## 8. Seguridad y buenas practicas
+## 8. Evidencias de ejecucion
+
+Se creo una carpeta de evidencias con imagenes de las ejecuciones realizadas (En Prefect Cloud) para documentar el funcionamiento del flujo.
+- `evidencias/prefect_deployment.png`
+- `evidencias/prefect_run_exitoso.png`
+## 9. Seguridad y buenas practicas
 
 - No subir `.env` al repositorio.
 - Rotar credenciales si alguna fue expuesta.
 - Mantener `.gitignore` y `.prefectignore` actualizados.
 - Para produccion, administrar secretos con Prefect (Variables/Blocks) en lugar de archivo `.env`.
 
-## 9. Verificacion rapida
+## 10. Verificacion rapida
 
 Checklist:
 
@@ -150,4 +155,5 @@ Checklist:
 - API key de OpenWeather activa
 - Deployment `clima-1h` en Prefect Cloud
 - Work pool `managed-pool` disponible y con workers/infra activos
+
 
