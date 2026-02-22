@@ -3,7 +3,7 @@ prefect-version: 3.6.18
 
 pull:
   - prefect.deployments.steps.git_clone:
-      repository: https://github.com/TU_USUARIO/TU_REPO.git
+      repository: https://github.com/GuissellB/Tarea_2_orquestador.git
       branch: main
 
 deployments:
