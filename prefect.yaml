@@ -1,43 +1,17 @@
----
-# Welcome to your prefect.yaml file! You can use this file for
-# storing and managing configuration for deploying your flows.
-# We recommend committing this file to source control along
-# with your flow code.
-
-# Generic metadata about this project
 name: Tarea_2
 prefect-version: 3.6.18
 
-# build section allows you to manage and build docker images
-build: null
-
-# push section allows you to manage if and how this project
-# is uploaded to remote locations
-push: null
-
-# pull section allows you to provide instructions for cloning
-# this project in remote locations
 pull:
-- prefect.deployments.steps.set_working_directory:
-    directory: C:\Users\guiss\Documents\Administracion de datos\Tarea_2
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/TU_USUARIO/TU_REPO.git
+      branch: main
 
-# the deployments section allows you to provide configuration
-# for deploying flows
 deployments:
-- name: clima-5min
-  version: null
-  tags: []
-  concurrency_limit: null
-  description: null
-  entrypoint: practica.py:clima_flow
-  parameters: {}
-  work_pool:
-    name: default
-    work_queue_name: null
-    job_variables: {}
-  schedules:
-  - interval: 3600.0
-    anchor_date: '2026-02-22T05:18:32.338509+00:00'
-    timezone: UTC
-    active: true
-
+  - name: clima-1h
+    entrypoint: practica.py:clima_flow
+    work_pool:
+      name: managed-pool
+    schedules:
+      - interval: 3600
+        timezone: America/Costa_Rica
+        active: true

@@ -9,9 +9,6 @@ from time import perf_counter
 from typing import Any, Dict
 import unicodedata 
 
-def ascii_safe(s: str) -> str:
-    return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
-
 def load_env_file(path: Path | None = None) -> None:
     """
     Carga variables de entorno desde .env sin dependencias externas.
